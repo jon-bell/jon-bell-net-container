@@ -1,14 +1,18 @@
 FROM ubuntu:focal
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x  | bash
-
 RUN apt-get update
 RUN apt-get -y install ruby 
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y install texlive-latex-base texlive-fonts-recommended \
     texlive-latex-extra texlive-fonts-extra texlive-bibtex-extra \
-    ruby-full build-essential zlib1g-dev locales curl nodejs
+    ruby-full build-essential zlib1g-dev locales curl
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x  | bash
+
+RUN apt-get -y install nodejs
+
+RUN rm -rf /var/lib/apt/lists/*
 
 RUN gem install jekyll bundler jekyll-sitemap jekyll-seo-tag \
     jekyll-coffeescript jekyll-scholar coffee-script coffee-script-source \
