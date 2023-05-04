@@ -38,6 +38,8 @@ RUN gem install jekyll bundler jekyll-sitemap jekyll-seo-tag \
 
 RUN rm -rf /var/lib/apt/lists/*
 
+RUN npm install -g wrangler@2.19.0
+
 ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
